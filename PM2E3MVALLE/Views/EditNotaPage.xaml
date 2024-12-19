@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:PM2E3MVALLE.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"             
+             x:Class="PM2E3MVALLE.Views.EditNotaPage"
+             Title="Editar Nota">
+    <ContentPage.BindingContext>
+        <viewModels:EditNotaViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Imagen que registra en la nota -->
+            <Frame HasShadow="True" CornerRadius="10" Padding="0" Margin="0,0,0,20">
+                <Image Source="{Binding Nota.Foto}" 
+                       Aspect="AspectFill" 
+                       HeightRequest="200" 
+                       WidthRequest="200"
+                       BackgroundColor="White"/>
+            </Frame>
+
+            <!-- Botón para Seleccionar Imagen -->
+            <Button Text="Seleccionar Imagen" 
+                    Command="{Binding SeleccionarCommand}" 
+                    BackgroundColor="#7ba58d" 
+                    TextColor="#000000" 
+                    CornerRadius="5" 
+                    Padding="10" 
+                    FontSize="16"/>
+
+            <!-- Campos de notas -->
+
+            <Label Text="Descripcion" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="Azure"/>
+            <Entry Text="{Binding Nota.Descripcion}" 
+                   Placeholder="Ingrese descripción de la nota" 
+                   BackgroundColor="Black" />
+            <Label Text="Fecha" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="Azure"/>
+            <DatePicker x:Name="fechaEntry" 
+                        Date="{Binding Nota.Fecha}" 
+                        Format="dd/MM/yyyy"
+                        HorizontalOptions="FillAndExpand"/>
+            <ImageButton
+                
+            x:Name="btnGrabarAudio"
+            Margin="0,0,0,5"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            HeightRequest="60"
+            Clicked="btnGrabarAudio_Pressed"
+            Source="mic_icon.png"
+            WidthRequest="60"/>
+            
+            <Label
+            Text="Descripción de la (voz)"
+            Margin="0,2,0,5"
+            FontAttributes="Bold"
+            FontSize="14"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            VerticalOptions="Start"/>
+            <StackLayout Orientation="Horizontal">
+                <Frame                         
+                Margin="5,0,0,10"
+                Padding="0,5,0,0"
+                BackgroundColor="Transparent"
+                BorderColor="azure"
+                CornerRadius="5"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                HeightRequest="40">
+                    <toolkit:MediaElement Source="{Binding Nota.Audio}"
+                    x:Name="mediaElementAudio"
+                    Margin="10,0,10,15"
+                    Aspect="Center"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="40"
+                    WidthRequest="300" />
+                </Frame>
+            </StackLayout>
+
+
+            <!-- Botones de Acción -->
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Guardar" 
+                        Command="{Binding GuardarCommand}" 
+                        BackgroundColor="#e2ac3f" 
+                        TextColor="#000000" 
+                        CornerRadius="5" 
+                        Padding="10" 
+                        FontSize="16" 
+                        HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="Cancelar" 
+                        Command="{Binding CancelarCommand}" 
+                        BackgroundColor="#F44336" 
+                        TextColor="#000000" 
+                        CornerRadius="5" 
+                        Padding="10" 
+                        FontSize="16" 
+                        HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "337064564709",
+    "firebase_url": "https://examen3p-2cf4a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "examen3p-2cf4a",
+    "storage_bucket": "examen3p-2cf4a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337064564709:android:6141c081d0e9a10e97410c",
+        "android_client_info": {
+          "package_name": "com.companyname.pm2e3mvalle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBObTWPu0naCaO3BHRtvufU12Bhjk1KKjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

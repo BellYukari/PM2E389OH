@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"             
+             x:Class="PM2E3MVALLE.Views.NewNotaPage"
+             Title="Nueva Nota">
+    <VerticalStackLayout Padding="10" Spacing="10">
+            <Frame HasShadow="True" CornerRadius="10" Padding="0" Margin="0,0,0,20" >
+                <Image x:Name="fotoImage"
+                       Aspect="AspectFill" 
+                       HeightRequest="200" 
+                       WidthRequest="200"
+                       BackgroundColor="White"/>
+            </Frame>
+            <Button Text="Tomar Foto"
+                    BackgroundColor="#8dc4b7"
+                    TextColor="#000000"
+                    CornerRadius="5" 
+                    Padding="10" 
+                    FontSize="16"
+                    x:Name="seleccionarButton"
+                    HeightRequest="50"
+                    Clicked="seleccionarButton_Clicked"/>
+        <Entry Placeholder="Descripción de Nota"
+               x:Name="descripcionEntry"/>
+        <DatePicker x:Name="fechaEntry" 
+            Date="{Binding Fecha}" 
+            Format="dd/MM/yyyy"
+            HorizontalOptions="FillAndExpand"/>
+        
+        <ImageButton
+            x:Name="btnGrabarAudio"
+            Margin="0,0,0,5"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            HeightRequest="60"
+            Clicked="btnGrabarAudio_Pressed"
+            Source="mic_icon.png"
+            WidthRequest="60"/>
+        <Label
+            Text="Descripción de la (voz)"
+            Margin="0,2,0,5"
+            FontAttributes="Bold"
+            FontSize="14"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            VerticalOptions="Start"/>
+        <StackLayout Orientation="Horizontal">
+            <Frame                         
+                Margin="5,0,0,10"
+                Padding="0,5,0,0"
+                BackgroundColor="Transparent"
+                BorderColor="azure"
+                CornerRadius="5"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                HeightRequest="40">
+                <toolkit:MediaElement
+                    x:Name="mediaElementAudio"
+                    Margin="10,0,10,15"
+                    Aspect="Center"
+                    BackgroundColor="DarkCyan"
+                    HeightRequest="40"
+                    Source=""
+                    WidthRequest="300" />
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Guardar"
+                x:Name="guardarButton"
+                BackgroundColor="#489c79" 
+                TextColor="#000000" 
+                Clicked="guardarButton_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
